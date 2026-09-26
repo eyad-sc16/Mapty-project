@@ -467,32 +467,29 @@ class App {
     });
   }
 
+  _hideForms() {
+    this._hideForm();
+    this._hideEditForm();
+  }
   _drawToolBar(e) {
-    const hideForms = () => {
-      this._hideForm();
-      this._hideEditForm();
-    }
 
+    this._hideForms()
     const type = e.layerType;
     const layer = e.layer;
 
     if (type === 'polygon') {
-      hideForms()
       layer.bindPopup('Polygon');
     }
 
     if (type === 'polyline') {
-      hideForms()
       layer.bindPopup('Line')
     }
 
     if (type === 'circle') {
-      hideForms()
       layer.bindPopup('Circle')
     }
 
     if (type === 'rectangle') {
-      hideForms()
       layer.bindPopup('Rectangle')
     }
     this.#drawnItems.addLayer(layer);
@@ -502,6 +499,11 @@ class App {
   _removeAllDrawnItems() {
     this.#drawnItems.clearLayers();
     this.#drawnItemsArr = [];
+  }
+
+  _sliderCloseToggle() {
+    this._sliderToggle()
+    this._hideForms()
   }
 
   _sliderToggle() {
