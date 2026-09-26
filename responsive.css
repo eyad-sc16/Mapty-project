@@ -1,25 +1,5 @@
-@media (max-width:480px) {
-
-  body {
-    padding: 0;
-  }
-
+@media (max-width:37.5rem) {
   .sidebar {
-    width: 100%;
-    padding: 1.5rem;
-
-  }
-
-  .workout {
-    padding: 1.5rem 1rem;
-  }
-
-  .form {
-    padding: 1.5rem;
-  }
-
-  .open-sidebar-btn {
-    right: -1rem;
-    bottom: 1rem;
+    flex-basis: 100%;
   }
 }

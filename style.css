@@ -34,11 +34,13 @@ body {
   display: flex;
 }
 
+/* GENERAL */
 a:link,
 a:visited {
   color: var(--color-brand--1);
 }
 
+/* SIDEBAR */
 .sidebar {
   flex-basis: 50rem;
   background-color: var(--color-dark--1);
@@ -297,6 +299,7 @@ a:visited {
   grid-template-columns: 1fr 1fr;
   gap: 0.5rem 2.5rem;
 
+  /* Match height and activity boxes */
   height: 9.25rem;
   transition: all 0.5s, transform 1ms;
 }
@@ -401,12 +404,14 @@ a:visited {
   color: var(--color-light--2);
 }
 
+/* MAP */
 #map {
   flex: 1;
   height: 100%;
   background-color: var(--color-light--1);
 }
 
+/* Popup width is defined in JS using options */
 .leaflet-popup .leaflet-popup-content-wrapper {
   background-color: var(--color-dark--1);
   color: var(--color-light--2);
@@ -483,36 +488,4 @@ a:visited {
   color: var(--color-dark--1);
   transform: translateY(-3px);
   box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.3);
-}
-
-[data-tooltip] {
-  position: relative;
-}
-
-[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%) translateY(4px);
-  background-color: var(--color-dark--2);
-  color: var(--color-light--2);
-  padding: 0.4rem 0.8rem;
-  font-size: 1.1rem;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 600;
-  white-space: nowrap;
-  border-radius: 4px;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.2s ease;
-  pointer-events: none;
-  z-index: 2000;
-}
-
-[data-tooltip]:hover::after {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
 }

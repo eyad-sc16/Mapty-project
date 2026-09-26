@@ -80,6 +80,7 @@ class App {
   constructor() {
     this._getPosition()
     this._getLocalStorage()
+    this._restoreSidebarState()
 
     form.addEventListener('submit', this._newWorkout.bind(this))
     editForm.addEventListener('submit', this._saveEdit.bind(this))
@@ -428,6 +429,7 @@ class App {
     const allWorkouts = document.querySelectorAll('.workout')
     const data = JSON.parse(localStorage.getItem('workouts'))
 
+    if (!data) return
     if (sortBtn.checked) {
       allWorkouts.forEach(workout => workout.remove())
       const sortedWorkouts = data.toSorted(work => {
@@ -504,6 +506,12 @@ class App {
 
   _sliderToggle() {
     slider.classList.toggle('hidden')
+    localStorage.setItem('sidebarHidden', slider.classList.contains('hidden'))
+  }
+
+  _restoreSidebarState() {
+    const isHidden = localStorage.getItem('sidebarHidden') === 'true'
+    if (isHidden) slider.classList.add('hidden')
   }
 }
 
