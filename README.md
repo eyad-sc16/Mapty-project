@@ -44,7 +44,3 @@ Mapty is a feature-rich, interactive web application designed to log, track, and
 This project follows a robust architecture adhering to SOLID principles and OOP in JavaScript. Flowcharts and architectural diagrams are included in the repository (`Mapty-flowchart.png`, `Mapty-architecture-final.png`).
 
 ---
-
-## 📄 License
-
-Developed for learning and portfolio purposes based on Jonas Schmedtmann's JavaScript course, with custom enhancements and extensions.
