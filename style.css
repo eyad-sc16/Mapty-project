@@ -42,10 +42,31 @@ a:visited {
 
 /* SIDEBAR */
 .error-message.hidden {
-  display: none;
-  transform: translateY(-4rem);
   opacity: 0;
+  transform: translateX(-10rem);
+
 }
+
+.error-message {
+  background-color: rgba(255, 65, 65, 0.15);
+  color: #ff5252;
+  border: 1px solid rgba(255, 82, 82, 0.4);
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  opacity: 1;
+  transform: translatex(0rem);
+  transition: all 0.3s ease;
+}
+
+
+
 
 .error-window {
   background-color: #9f2409;
@@ -348,27 +369,7 @@ a:visited {
   transition: all 0.5s, transform 1ms;
 }
 
-.error-message {
-  background-color: rgba(255, 65, 65, 0.15);
-  color: #ff5252;
-  border: 1px solid rgba(255, 82, 82, 0.4);
-  padding: 0.8rem 1.2rem;
-  border-radius: 6px;
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.3s ease;
-}
 
-.error-message.hidden {
-  display: none;
-  opacity: 0;
-  transform: translateY(-1rem);
-}
 
 .edit-form {
   background-color: var(--color-dark--1);

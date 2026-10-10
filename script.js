@@ -165,8 +165,7 @@ class App {
     form.classList.remove('hidden')
     inputDistance.focus()
     this._setChecked()
-    if (slider.classList.contains('hidden'))
-      this._sliderToggle()
+
   }
 
   // _hideForm: Hides workout form and resets input values (App class)
@@ -229,7 +228,7 @@ class App {
     if (type === 'running') {
       const cadence = +inputCadence.value;
       if (!validInputs(distance, duration, cadence) || !allPositive(distance, duration, cadence)) {
-        this._errorMessage(4)
+        this._errorMessage(4, 'Invalid input : (MUST BE Number and > 0) !')
         return
       }
       workout = new Running([lat, lng], distance, duration, cadence)
@@ -238,7 +237,7 @@ class App {
     if (type === 'cycling') {
       const elevation = +inputElevation.value;
       if (!validInputs(distance, duration, elevation) || !allPositive(distance, duration)) {
-        this._errorMessage(4)
+        this._errorMessage(4, 'Invalid input : (MUST BE Number and > 0) !')
         return
       }
       workout = new Cycling([lat, lng], distance, duration, elevation)
@@ -435,8 +434,11 @@ class App {
 
     if (workout.type === 'running') {
       const cadence = +inputCadenceEdit.value
-      if (!validInputs(distance, duration, cadence) || !allPositive(distance, duration, cadence))
-        return this._errorMessage(4)
+      if (!validInputs(distance, duration, cadence) || !allPositive(distance, duration, cadence)) {
+        this._errorMessage(4, 'Invalid input : (MUST BE Number and > 0) !')
+        return
+      }
+
 
       workout.distance = distance
       workout.duration = duration
@@ -446,8 +448,10 @@ class App {
 
     if (workout.type === 'cycling') {
       const elevation = +inputElevationEdit.value
-      if (!validInputs(distance, duration, elevation) || !allPositive(distance, duration))
-        return alert('Inputs has to be positive numbers!')
+      if (!validInputs(distance, duration, elevation) || !allPositive(distance, duration)) {
+        this._errorMessage(4, 'Invalid input : (MUST BE Number and > 0) !')
+        return
+      }
       workout.distance = distance
       workout.duration = duration
       workout.elevationGain = elevation
@@ -519,7 +523,8 @@ class App {
   }
 
   // _errorMessage: Shows error message banner (App class)
-  _errorMessage(sec = 3) {
+  _errorMessage(sec = 3, eM = 'Invalid Input!') {
+    messageEl.textContent = eM
     messageEl.classList.remove('hidden')
     setTimeout(() => {
       messageEl.classList.add('hidden')
