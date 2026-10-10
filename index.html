@@ -23,6 +23,9 @@
 </head>
 
 <body>
+  <div class="error-window hidden">
+    <p class="error-window-text">Her is the error</p>
+  </div>
   <div class="controle-box">
     <button class="reset-btn reset" data-tooltip="Reset all">Reset All</button>
   </div>
@@ -37,7 +40,7 @@
     <ul class="workouts">
       <div class="form-outer-container">
         <span class="error-message hidden">Invalid positive number</span>
-        <form class="form hidden">
+        <form class="form">
           <div class="form__row">
             <label class="form__label">Type</label>
             <select class="form__input form__input--type">

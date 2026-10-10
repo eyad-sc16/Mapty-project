@@ -41,6 +41,39 @@ a:visited {
 }
 
 /* SIDEBAR */
+.error-message.hidden {
+  display: none;
+  transform: translateY(-4rem);
+  opacity: 0;
+}
+
+.error-window {
+  background-color: #9f2409;
+  color: var(--color-brand--1);
+  position: absolute;
+  font-size: clamp(0.9rem, 5vw, 1.6rem);
+  height: clamp(4rem, 5vh, 5rem);
+  min-width: fit-content;
+  padding: 1rem;
+  width: clamp(25rem, 10vw, 30rem);
+  border-radius: 1.3rem;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: all 0.23s ease-in-out;
+}
+
+.error-window.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) translateY(-2rem);
+}
+
 .sidebar {
   flex-basis: 50rem;
   background-color: var(--color-dark--1);
@@ -206,7 +239,7 @@ a:visited {
   position: relative;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 0.75rem 1.5rem;
 }
 
@@ -289,6 +322,17 @@ a:visited {
   font-weight: 800;
 }
 
+.workout__details .workout__icon {
+  font-size: 1.8rem;
+  margin-right: 0.2rem;
+  height: 0.28rem;
+}
+
+.workout .weather-label {
+  width: fit-content;
+  text-wrap: nowrap;
+}
+
 .form {
   background-color: var(--color-dark--2);
   border-radius: 5px;
@@ -305,17 +349,25 @@ a:visited {
 }
 
 .error-message {
-  color: rgb(255, 65, 65);
-  font-size: 1.2rem;
-  transition: all 0.7s ease-in-out;
-  transform: translateY(-2rem);
-  opacity: 1;
+  background-color: rgba(255, 65, 65, 0.15);
+  color: #ff5252;
+  border: 1px solid rgba(255, 82, 82, 0.4);
+  padding: 0.8rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
 }
 
 .error-message.hidden {
-  transform: none;
   display: none;
   opacity: 0;
+  transform: translateY(-1rem);
 }
 
 .edit-form {
@@ -488,4 +540,20 @@ a:visited {
   color: var(--color-dark--1);
   transform: translateY(-3px);
   box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.3);
+}
+
+.leaflet-control-zoom,
+.leaflet-draw-section .leaflet-draw-toolbar {
+  border: 0.2rem solid var(--color-brand--1);
+  border-radius: 05rem;
+  overflow: hidden;
+}
+
+.leaflet-draw-toolbar .leaflet-draw-edit-edit,
+.leaflet-draw-toolbar .leaflet-draw-draw-polyline,
+.leaflet-draw-toolbar .leaflet-draw-draw-rectangle,
+.leaflet-draw-toolbar .leaflet-draw-draw-circle,
+.leaflet-draw-toolbar .leaflet-draw-draw-marker,
+.leaflet-draw-toolbar .leaflet-draw-draw-polygon {
+  border-color: var(--color-dark--1);
 }
