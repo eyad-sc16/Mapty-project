@@ -194,7 +194,6 @@ class App {
     const duration = +inputDuration.value;
     const { lat, lng } = this.#mapEvent.latlng
 
-    if (!(lat || lng)) return this._fetchErrorHandling(3, 'Can Not Get Your Current Coordetaites!')
     let workout;
     let place;
 
@@ -230,7 +229,7 @@ class App {
     if (type === 'running') {
       const cadence = +inputCadence.value;
       if (!validInputs(distance, duration, cadence) || !allPositive(distance, duration, cadence)) {
-        this._errorMessage()
+        this._errorMessage(4)
         return
       }
       workout = new Running([lat, lng], distance, duration, cadence)
@@ -239,7 +238,7 @@ class App {
     if (type === 'cycling') {
       const elevation = +inputElevation.value;
       if (!validInputs(distance, duration, elevation) || !allPositive(distance, duration)) {
-        this._errorMessage()
+        this._errorMessage(4)
         return
       }
       workout = new Cycling([lat, lng], distance, duration, elevation)
@@ -520,7 +519,7 @@ class App {
   }
 
   // _errorMessage: Shows error message banner (App class)
-  _errorMessage(sec) {
+  _errorMessage(sec = 3) {
     messageEl.classList.remove('hidden')
     setTimeout(() => {
       messageEl.classList.add('hidden')
